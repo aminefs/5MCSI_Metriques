@@ -3,107 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulaire de Contact</title>
+  <title>Contactez l'Administrateur</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABC1BMVEX///8ZdtL/oAAhISEAAAARdNFGiNf/ogD/nQAAb9AAbdANDQ3/nwCpqamwsLAFBQWbm5uTk5MAdNj/mgAbGxu/v7+jo6MVFRX29vbs7OwRERHb29vr8/vi4uJ+fn7T09N0dHTN3/QAc9pKSkpoaGg9PT1bW1soKCj/9+r/xH7/8NvFxcX//PX/z5D/6s+evuiXu+f/vGEzesB+q+Jnnt5HfLhWlNvnmySJs+XD1/H/4rv/1Z0zMzP/2Kr/rTz/ul//w3P/qSL/tEpgYGCwzO1qgauUioLNlVPa6PcZd8tUfrXemTShjXt1hJvYmD+MiYfBk1a1kWLqnQXMlkS5kXCAhpGmjXNfhbJLjNjeysUGAAAIaklEQVR4nO2deV/aSBiABTJAgIqGuAQFAfHAq7hCUWq10mJXrN1e263f/5NswhFykskcmbC/9/lTDZnH9517EtbWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIprJx2DrcrIkuBj82pWJZLeelXdEF4cWulJoi7YsuCh/W54K64obownAhpZqGKVUTXRoO1Bch1IO4Lro4HFi3Gub/j2lqN9wUXRwOgOHqA4arDxiuPmC4+oDh6gOGqw8Yxo9aJdzfUxlWalEvCpy2JJ1GmHVBcsPKrnGzg62whaRhV5qsuWyHWYwgNjzN541LVGk/ujiay4Ip6RX2RaSGW8X5ClYxskVI65qS9AfuVYSGW9abRbV+dVhOESiSGVoFU+oBaZFDUkxZwU1UIkOboH6vkO03ITW7Ia6irbBFvMhvOW9Vpyk4NhXHbTETVbOtCO/gXOKIIO5l9JRTzhtjKTby5gXlQ5wLXIIpKaL+YnfbdWecRK0czZt9NY8TC2eK6v+Yj7RFx6Ti+t/iKe6o0yhuY1UndwSjqoY+N8dJVO3rUVGSUg2cFpH0HoxYJ4zimrZTr2PVJS/BSHdzvBRZ/ofddTAlRTzh4qsoPIIGPBVjIchT0StFheyoEjc3AXhFUNCih5ci/US8Ho8UneKhWPTtC9onb2/Ojw3Ob96etM/8/u6dGh9BL0XvPD25/fMuUypl55RKybv3N6+9/vTU/ZFC1+Vcih5j6tfHw2wpWygkrRQKuujw3i3pGvSKFXQrOqfh7Zuhbpf0ppAtZc7b9gv2HTMX8cenHIpqy/rL9nGy5Kc3l8zen1gvcRiKF3QqbjcWvzk7TvqGz4LuaInjhq0zFJ2iU2yK0qn589sCjt/U8dy8asf2aTGIoIFFsWwm6cmHgPy0URqabc5+PnaCFsXy0XzqpwcQ388WRu0gHztBY+FdKqvqttSaC96HCeAsjO9n12ofpW1VLUsxO7+4vt9q7c7r4NldKayfEcbhvMGp77ZaH1/F+AhqexguQ03FzEnwh8cBUkGjMnoO5OIGuaDe/ydXIIpnFIJGoraDbyGYDzSCRnPjO62KCcckrahN8YNoheXc0grq/eJ58G3E0S6E7ug9ohjnBpWyEs4M70Rr+MMgRw1ilqfV5qjTubjodEaD6jCZzDBRjEuXUR11XxK5nDwjl0NvHj79dZWhtsy+D745fx4vXlBORihhBSFFGT99+kzrmBU/tBmlZafdQlNBl88/qCSzf4rVq16gnI+dKal8+Xt1g9hJyMv9JijKw0/yOGaPxfkN0jh+M8crUsdCRpSf1gvIT4fjV9Iglt6KEWyOZXy/ieMlYaoKams6uAm6ACHCMGZFCHbDZOgijE9EUSwJGH/3cgR+huKYpOPIRj847YesggsQ+hY+jNHPhHvEgkYYv4dWLES9nNGlESRTtA5rtK1X3pz6ljgkHcI6SKFoaWoqDUkqeqL/nM0Jl2b4bsKl+DOs4e387rWjxXaUGyavEdES1IL6J1yFM1wMTQ9cR3btigxeBkPVypiKl+HyNHs/u/uG+0yLQ5H6bHSThaCep1/CGc7GbdqB64CNg23qIPbpc3Sq+D2U4Wwpw3Vw3oX6jlKwSduOLgiTp3PDWlCS6lAasgqhkachFE1D7jGssgthAn0OYRhZPbxm085MCBNEsy3dDGxLKY/wj5klqc4Yv1M0+0PtXUB/2KATfGSYpHoQn7GDaBnTpJaOaWgfMxkxTFK9Ir7BjqFjXJr3pCgVqc+F9VgmaSKxh93W2JZMK+sb3mzRn0lJszVUnjEFI5sfVhkMuq2g35gVMbI5/iNbQb01xTWMap2G0ah7wd4PPMPIloQZDkpnhpgz4VJEgmsD1obKP3hJGtkmKXtDvD4/un0L9oafDIEgy0KGf19RHVx3++k001HphPHl5dPD129XSy257x8OumnZ2KRHfjvZNBifquwlnp6X7C7y3QOudscy/ephsKiCvvg5cm1nHnu5CPSmKMqvobchv40nrSuz7uKXO469Nm04hnAwjix+M5Dyy23I70zUNdEWKCXKG2cUS7waUq3Puu/DVLy0L21wOyZcfYm0Bvor8mpmqmlRgkaiRpGjjOfyIRUfzLrIbeZLvkvPhL1/M5wrIctlXzKmK1TcHilhsMdLifJ7IshtMMN+BhGavW88BcXnqLFWnMkmeQlWRQxlXOz95PdwHuVZGUag39xGo1Ue09zwILnKy/AiFiFMJOSRrVi1+g6rdwgKHc1YQD1LodYPylIxtc/kq6GYr/mSgsbmPpJ2OH0FbJnJK33i0FVMkR/nZTo0t0RZvJgpLkmaSOQGsyJZ30PBIIpxSVI9hp1ZkVrW0xfUUWS7T0+FfD0tUs1+vIRWkfmyPTlyd1qkHcfxEspEZXsSgQo0N3QevaCLYgwNNdfrvqgUY2Q4z9K1hvsVsBSKcTKctTRexxEp6mJshjSW3oLtCwtZHj2kxOzxGb92kvGBGXIQskyfWEaR8bEuclDaWiwvRcLXKo3ikqZmU+qvSHYoPyZTfN1wYC+YW7FM+PAIk6cp6EEJZ8E83qxJdhKR+cEuMszecIki6bMj7A7j05DzWIhyKpKe6I7FBMrRzngrEn+/RQwWTG2doZ8i+XeUaOL3LXIdn7IxWtEQvveE+r5lWyjmsb4VwwfqZ0QpBRNL1ru3ipPJlCodUp1a74pURLnmsrLVGpPv7KJddBOoiJyjGQ9JFiv8Qo4LTQVHwaVjQkeMIkJLU5QpTaxX6zD2y71w21Tzohu1oixfROmn89iPMlVlufcYXCbWNCM6QYuQnOsK8DOodtLGC+YQR4zP748irYBOyWan239Jc+Kl1x1F134CAAAAAAAAAAAAAAAAAAAAAAAAAAAAQJz5D6Oy5cz6T5JmAAAAAElFTkSuQmCC');
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvrTAXEcS60Rd0UK6kvNvrta8aU6R6sL2w2A&s');
       background-size: cover;
-      background-position: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
     }
     .container {
-      text-align: center;
-      margin-bottom: 30px;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 20px;
       border-radius: 10px;
-      max-width: 500px;
+      width: 50%;
+      margin: 50px auto;
     }
-    .container h1 {
-      color: #333;
-      font-size: 24px;
+    form {
+      margin-top: 20px;
     }
-    .container p {
-      color: #666;
-      font-size: 16px;
-    }
-    .form-container {
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 500px;
-    }
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #4CAF50;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group textarea {
-      width: 100%;
+    input, textarea {
+      width: 80%;
       padding: 10px;
-      border: 1px solid #ccc;
+      margin: 10px 0;
       border-radius: 5px;
-      resize: vertical;
+      border: none;
     }
-    .form-group button {
+    input[type="submit"] {
       background-color: #4CAF50;
       color: white;
-      border: none;
-      padding: 10px 20px;
       cursor: pointer;
-      border-radius: 5px;
-      width: 100%;
-    }
-    .form-group button:hover {
-      background-color: #45a049;
-    }
-    .personal-info {
-      font-size: 18px;
-      color: #333;
-      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-
-<div class="container">
-  <h1>Travail demandé par le professeur</h1>
-  <p>Ce formulaire a été créé dans le cadre d'un exercice académique. Si vous avez besoin de contacter l'administrateur de la page, veuillez remplir le formulaire ci-dessous avec vos informations.</p>
-  <div class="personal-info">
-    <p><strong>Nom :</strong> MENNANE</p>
-    <p><strong>Prénom :</strong> Mohamed Amine</p>
+  <div class="container">
+    <h1>Contactez l'Administrateur</h1>
+    <p>Ce site a été créé par Mohamed Amine Mennane dans le cadre d'un travail demandé par le professeur.</p>
+    <p>Si vous avez besoin de contacter l'administrateur de la page, veuillez remplir le formulaire ci-dessous.</p>
+    
+    <form action="submit_form.php" method="post">
+      <input type="text" name="nom" placeholder="Nom"><br>
+      <input type="text" name="prenom" placeholder="Prénom"><br>
+      <textarea name="message" rows="5" placeholder="Votre message"></textarea><br>
+      <input type="submit" value="Envoyer">
+    </form>
   </div>
-</div>
-
-<div class="form-container">
-  <h2>Formulaire de Contact</h2>
-  <form action="submit_form.php" method="post">
-    <div class="form-group">
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" placeholder="Écrivez votre message ici..." required></textarea>
-    </div>
-    <div class="form-group">
-      <button type="submit">Envoyer</button>
-    </div>
-  </form>
-</div>
-
 </body>
 </html>
