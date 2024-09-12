@@ -39,7 +39,7 @@ def monhistogramme():
 
 @app.route('/commits/')
 def get_commits_by_hour():
-    url = 'https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits'
+    url = 'https://github.com/aminefs/5MCSI_Metriques/blob/main/templates/commits.html'
     response = requests.get(url)
     data = response.json()
 
