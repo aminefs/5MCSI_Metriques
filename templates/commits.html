@@ -1,40 +1,43 @@
-<html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Graphique des Commits</title>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-    google.charts.load('current', {packages: ['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+    <meta charset="UTF-8">
+    <title>Graphique des Commits par Heure</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-      fetch('/commits/')
-        .then(response => response.json())
-        .then(data => {
-          var dataTable = new google.visualization.DataTable();
-          dataTable.addColumn('string', 'Minute');
-          dataTable.addColumn('number', 'Commits');
+        function drawChart() {
+            fetch('/commits/')
+                .then(response => response.json())
+                .then(data => {
+                    var dataTable = new google.visualization.DataTable();
+                    dataTable.addColumn('string', 'Heure');
+                    dataTable.addColumn('number', 'Commits');
 
-          // Transformer les données JSON en tableau utilisable par Google Charts
-          for (var minute in data) {
-            dataTable.addRow([minute.toString(), data[minute]]);
-          }
+                    // Insérer les données dans le tableau
+                    for (var hour in data) {
+                        dataTable.addRow([hour.toString() + 'h', data[hour]]);
+                    }
 
-          var options = {
-            title: 'Commits par minute',
-            curveType: 'function',
-            legend: { position: 'bottom' }
-          };
+                    var options = {
+                        title: 'Commits par heure',
+                        curveType: 'function',
+                        legend: { position: 'bottom' },
+                        hAxis: {title: 'Heures'},
+                        vAxis: {title: 'Nombre de commits'}
+                    };
 
-          var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-          chart.draw(dataTable, options);
-        });
-    }
-  </script>
+                    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                    chart.draw(dataTable, options);
+                });
+        }
+    </script>
 </head>
 <body>
-  <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <h1>Suivi des Commits par Heure - Créé par Mohamed Amine Mennane</h1>
+    <p>Ce graphique montre la quantité de commits effectués heure par heure pour ce projet. Si vous avez des questions, veuillez contacter l'administrateur en remplissant le formulaire ci-dessous.</p>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
 </body>
 </html>
