@@ -8,7 +8,7 @@
       google.charts.setOnLoadCallback(drawChart);
       
       function drawChart() {
-        // Remplacer les données des dinosaures par des dates et des températures
+        // Remplacer les données par des températures
         var data = google.visualization.arrayToDataTable([
           ['Date', 'Température (°C)'],
           ['01/09/2024', 28],
@@ -29,14 +29,13 @@
         ]);
 
         var options = {
-          title: 'Évolution des températures de la ville de Tawarano',
-          legend: { position: 'bottom' },
-          hAxis: { title: 'Date' },
-          vAxis: { title: 'Température (°C)' },
-          curveType: 'function', // Pour une courbe lissée
+          title: 'Distribution des températures à Tawarano',
+          legend: { position: 'none' },
+          hAxis: { title: 'Température (°C)' },
+          vAxis: { title: 'Fréquence' },
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
     </script>
