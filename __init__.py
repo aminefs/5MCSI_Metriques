@@ -34,28 +34,37 @@ def mongraphique():
 @app.route('/histogramme/')
 def monhistogramme():
     return render_template("histogramme.html")
-
-
-
 @app.route('/commits/')
 def get_commits_by_hour():
-    url = 'https://github.com/aminefs/5MCSI_Metriques/blob/main/templates/commits.html'
-    response = requests.get(url)
-    data = response.json()
+    try:
+        url = 'https://github.com/aminefs/5MCSI_Metriques/blob/main/templates/commits.html'
+        response = requests.get(url)
+        data = response.json()
 
-    commits_by_hour = {}
+        if response.status_code != 200:
+            return jsonify({"error": f"Failed to fetch data from GitHub API. Status code: {response.status_code}"}), 500
 
-    # Parcourir les commits et extraire les heures
-    for commit in data:
-        commit_date = commit['commit']['author']['date']
-        hour = datetime.strptime(commit_date, '%Y-%m-%dT%H:%M:%SZ').hour
-        
-        if hour in commits_by_hour:
-            commits_by_hour[hour] += 1
-        else:
-            commits_by_hour[hour] = 1
+        commits_by_hour = {}
 
-    return jsonify(commits_by_hour)
+        # Parcourir les commits et extraire les heures
+        for commit in data:
+            try:
+                commit_date = commit['commit']['author']['date']
+                hour = datetime.strptime(commit_date, '%Y-%m-%dT%H:%M:%SZ').hour
+
+                if hour in commits_by_hour:
+                    commits_by_hour[hour] += 1
+                else:
+                    commits_by_hour[hour] = 1
+            except KeyError as e:
+                return jsonify({"error": f"KeyError - commit structure missing expected fields: {str(e)}"}), 500
+
+        return jsonify(commits_by_hour)
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 
   
 if __name__ == "__main__":
