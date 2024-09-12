@@ -7,23 +7,39 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
+    }
+    .container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .container h1 {
+      color: #333;
+      font-size: 24px;
+    }
+    .container p {
+      color: #666;
+      font-size: 16px;
     }
     .form-container {
       background-color: #fff;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
     }
     .form-container h2 {
       text-align: center;
       margin-bottom: 20px;
+      color: #4CAF50;
     }
     .form-group {
       margin-bottom: 15px;
@@ -31,6 +47,7 @@
     .form-group label {
       display: block;
       margin-bottom: 5px;
+      color: #333;
     }
     .form-group input, .form-group textarea {
       width: 100%;
@@ -56,6 +73,11 @@
   </style>
 </head>
 <body>
+
+<div class="container">
+  <h1>Travail demandé par le professeur</h1>
+  <p>Ce formulaire a été créé dans le cadre d'un exercice académique. Si vous avez besoin de contacter l'administrateur de la page, veuillez remplir le formulaire ci-dessous avec vos informations.</p>
+</div>
 
 <div class="form-container">
   <h2>Formulaire de Contact</h2>
