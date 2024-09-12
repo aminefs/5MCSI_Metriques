@@ -37,6 +37,36 @@ def monhistogramme():
 
 
 
+# Route pour extraire les minutes à partir d'une date
+@app.route('/extract-minutes/<date_string>')
+def extract_minutes(date_string):
+    date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
+    minutes = date_object.minute
+    return jsonify({'minutes': minutes})
+
+# Route pour récupérer les commits du repo et compter les commits par minute
+@app.route('/commits/')
+def get_commits():
+    url = 'https://github.com/aminefs/5MCSI_Metriques/blob/main/templates/commits.html'
+    response = requests.get(url)
+    data = response.json()
+
+    commits_by_minute = {}
+
+    # Parcourir les commits et extraire les minutes
+    for commit in data:
+        commit_date = commit['commit']['author']['date']
+        minutes = datetime.strptime(commit_date, '%Y-%m-%dT%H:%M:%SZ').minute
+        
+        if minutes in commits_by_minute:
+            commits_by_minute[minutes] += 1
+        else:
+            commits_by_minute[minutes] = 1
+
+    return jsonify(commits_by_minute)
+
+
+
 
   
 if __name__ == "__main__":
